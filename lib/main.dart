@@ -1,8 +1,15 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:facebook_clon/pages/facebook.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    DevicePreview(
+      builder: (_) => const MyApp(),
+      enabled: !kReleaseMode,
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -11,9 +18,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      builder: DevicePreview.appBuilder,
+      locale: DevicePreview.locale(context),
       debugShowCheckedModeBanner: false,
-      home: FacebookPage(),
+      home: const FacebookPage(),
     );
   }
 }
