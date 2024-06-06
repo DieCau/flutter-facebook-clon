@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../widgets/circle_button.dart';
 import '../widgets/what_is_on_your_mind.dart';
 import '../widgets/quick_actions.dart';
+import '../widgets/stories.dart';
 
 class FacebookPage extends StatelessWidget {
   const FacebookPage({super.key});
@@ -56,13 +57,13 @@ class FacebookPage extends StatelessWidget {
         ],
       ),
       body: ListView(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 20,
-        ).copyWith(top: 15),
         children: const [
+          SizedBox(height: 10,),
           WhatIsOnYourMind(),
           SizedBox(height: 30,),
           QuickActions(),
+          SizedBox(height: 30,),
+          Stories(),
         ],
       ),
     );
