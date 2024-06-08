@@ -49,6 +49,14 @@ class PublicationItem extends StatelessWidget {
     // ignore: sized_box_for_whitespace
     return Container(
       width: double.infinity,
+      decoration: const BoxDecoration(
+        border: Border(
+          top: BorderSide(
+            width: 6,
+            color: Color(0xffebebeb),
+          ),
+        ),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -56,9 +64,9 @@ class PublicationItem extends StatelessWidget {
             padding: padding,
             child: Row(
               children: [
-                const Avatar(
+                Avatar(
                   size: 35,
-                  asset: 'assets/users/1.jpg',
+                  asset: publication.user.avatar,
                 ),
                 const SizedBox(
                   width: 10,
@@ -71,16 +79,21 @@ class PublicationItem extends StatelessWidget {
               ],
             ),
           ),
-          CachedNetworkImage(
-            imageUrl: publication.imageUrl,
-            height: 200,
-            width: double.infinity,
-            fit: BoxFit.cover,
+          AspectRatio(
+            aspectRatio: 16 / 9,
+            child: CachedNetworkImage(
+              imageUrl: publication.imageUrl,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
           ),
           Padding(
             padding: padding.copyWith(top: 15),
             child: Text(
               publication.title,
+              style: const TextStyle(
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
           Padding(
