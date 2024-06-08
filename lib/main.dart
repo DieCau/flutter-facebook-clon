@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
       locale: DevicePreview.locale(context),
       debugShowCheckedModeBanner: false,
       home: const FacebookPage(),
+      theme: ThemeData(fontFamily: 'Nunito',),
     );
   }
 }
